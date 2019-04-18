@@ -1,17 +1,15 @@
-# 安装使用指南
+# Installation and Usage Documentation
 
-## 测试环境
+In our experiment, Smartverif tool is run on a PC server with Ubuntu 16.04 LTS.
 
-Ubuntu LTS 16.04
-
-## 安装依赖
+## Installing Dependencies
 
 ```
 $ sudo apt-get install maude graphviz haskell-stack
 $ stack upgrade
 ```
 
-## 编译安装tamarin prover
+## Compiling Tamarin Prover
 
 ```
 $ git clone https://github.com/tamarin-prover/tamarin-prover.git
@@ -19,11 +17,12 @@ $ cd tamarin-prover
 $ make default
 ```
 
-编译完成后tamarin-prover可执行程序会被复制到`~/.local/bin`目录下，然后将该目录加入到系统PATH中
+After the compilation, `tamarin-prover` executable will be copied to `~/.local/bin` directory.
+Add the directory to your PATH.
 
 `export PATH=$PATH:~/.local/bin`
 
-然后确认当前shell可执行`tamarin-prover`程序
+To use SmartVerif, you need to confirm that `tamarin-prover` can be executed on current shell.
 
 ```
 $ tamarin-prover 
@@ -64,19 +63,18 @@ for usage instructions and pointers to examples.
 ------------------------------------------------------------------------------
 ```
 
-## 安装Python3及相关库
+## Installing Python Environment
 
-安装[Anaconda Python 3 version](https://www.anaconda.com/distribution/)
-然后运行以下命令安装相关库
+Install [Anaconda Python 3 version](https://www.anaconda.com/distribution/) and execute the following to install packages.
 
 ```
 $ conda install tensorflow python-levenshtein numpy pandas
 ```
 
 
-## 使用SmartVerif
+## Using SmartVerif
 
-例如，使用SmartVerif验证协议模型文件`example.spthy`
+For example, execute the following command to use SmartVerif to verify the model `example.spthy`.
 
 ```
 $ ./smartverif example.spthy
@@ -107,4 +105,4 @@ analyzed: /home/sucheng/tamarin1/examples/Tutorial.spthy
 
 ==============================================================================
 ```
-上面的summary of summaries即为验证结果
+The messages starting from `summary of summaries` demonstrate the result of verification.
